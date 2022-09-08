@@ -13,7 +13,7 @@ import QGroundControl               1.0
 import QGroundControl.ScreenTools   1.0
 
 //-------------------------------------------------------------------------
-//-- Toolbar Indicators
+//-- Индикаторы панели инструментов
 Row {
     id:                 indicatorRow
     anchors.top:        parent.top
@@ -32,9 +32,13 @@ Row {
             anchors.bottom:     parent.bottom
             source:             modelData
             visible:            item.showIndicator
+            //////////
+            //////////onLoaded: console.log("Loader1: " + model.modelData)
+            //////////
         }
     }
 
+    // загружаются: Рупор, Состояние GPS, Состояние(показатель качества радиосигнала) RC(передатчик и приемник радиоуправления) RSSI(Индикация уровня принимаемого сигнала)
     Repeater {
         model: _activeVehicle ? _activeVehicle.toolIndicators : []
         Loader {
@@ -42,6 +46,10 @@ Row {
             anchors.bottom:     parent.bottom
             source:             modelData
             visible:            item.showIndicator
+            //////////
+            //////////onLoaded: console.log("Loader2: " + model.modelData)
+            ////////// onStatusChanged: console.log("onStatusChanged Loader2")
+            //////////
         }
     }
 
@@ -52,6 +60,9 @@ Row {
             anchors.bottom:     parent.bottom
             source:             modelData
             visible:            item.showIndicator
+            //////////
+            //////////onLoaded: console.log("Loader3: " + model.modelData)
+            //////////
         }
     }
 }
