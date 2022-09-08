@@ -148,11 +148,13 @@ Item {
         property bool _verticalCenter: !QGroundControl.settingsManager.flyViewSettings.alternateInstrumentPanel.rawValue
     }//////////*/
 
-/*//////////    TelemetryValuesBar { // панель телеметрии внизу посередине
+    TelemetryValuesBar { // панель телеметрии внизу посередине
         id:                 telemetryPanel
         x:                  recalcXPosition()
         anchors.margins:    _toolsMargin
-
+        ////////// скроем ненужное
+        visible: false
+        //////////
         // States for custom layout support
         states: [
             State {
@@ -214,7 +216,7 @@ Item {
                 return parentToolInsets.leftEdgeBottomInset + _toolsMargin
             }
         }
-    }//////////*/
+    }
 
     //-- Virtual Joystick
     Loader {
@@ -237,7 +239,7 @@ Item {
     FlyViewToolStrip { // вертикальная панель инструментов у левого края
         id:                     toolStrip
         anchors.leftMargin:     _toolsMargin + parentToolInsets.leftEdgeCenterInset
-        anchors.topMargin:      _toolsMargin + parentToolInsets.topEdgeLeftInset + 100
+        anchors.topMargin:      _toolsMargin + parentToolInsets.topEdgeLeftInset
         anchors.left:           parent.left
         anchors.top:            parent.top
         z:                      QGroundControl.zOrderWidgets
