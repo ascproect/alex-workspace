@@ -30,7 +30,7 @@ import QGroundControl.Palette       1.0
 import QGroundControl.ScreenTools   1.0
 import QGroundControl.Vehicle       1.0
 
-// This is the ui overlay layer for the widgets/tools for Fly View
+// Это слой наложения пользовательского интерфейса для виджетов/инструментов для Fly View.
 Item {
     id: _root
 
@@ -110,7 +110,7 @@ Item {
         id:                         instrumentPanel
         anchors.margins:            _toolsMargin
 //////////        anchors.top:                multiVehiclePanelSelector.visible ? multiVehiclePanelSelector.bottom : parent.top
-        anchors.bottom: parent.bottom // авиагоризонт и компас внизу
+        anchors.bottom: parent.bottom //привязать авиагоризонт и компас к внизу
         anchors.right:              parent.right // справа
         width:                      _rightPanelWidth
         spacing:                    _toolsMargin
@@ -120,7 +120,7 @@ Item {
         property real rightInset: visible ? parent.width - x : 0
     }
 
-/*//////////    PhotoVideoControl { // это та маленькая красненькая кнопка что справа и посередине по высоте
+/*//////////    PhotoVideoControl { // Управление фото и видео. Это та маленькая красненькая кнопка что справа и посередине по высоте
         id:                     photoVideoControl
         anchors.margins:        _toolsMargin
         anchors.right:          parent.right

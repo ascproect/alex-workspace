@@ -15,7 +15,7 @@ import QGroundControl.Airmap        1.0
 import QGroundControl.Controls      1.0
 import QGroundControl.ScreenTools   1.0
 
-// This control contains the instruments as well and the instrument pages which include values, camera, ...
+// Этот элемент управления также содержит инструменты и страницы инструментов, которые включают значения, камеру, ...
 Column {
     id:         _root
     spacing:    _toolsMargin
@@ -30,7 +30,7 @@ Column {
         visible:            QGroundControl.airmapSupported ? QGroundControl.settingsManager.airMapSettings.enableAirMap.rawValue : false
     }
 
-    FlightDisplayViewWidgets {
+    FlightDisplayViewWidgets { // авиагоризонт и компас
         id:                 flightDisplayViewWidgets
         width:              parent.width
         missionController:  _missionController

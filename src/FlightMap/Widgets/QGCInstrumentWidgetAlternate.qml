@@ -17,34 +17,51 @@ import QGroundControl.FlightMap     1.0
 import QGroundControl.Palette       1.0
 
 Rectangle {
-    height: _outerRadius * 4
-    radius: _outerRadius
+    height: _outerRadius * 5
+//////////    radius: _outerRadius
+
     color:  QGroundControl.globalPalette.window
+//////////
+//    opacity: 0.1
+//////////
 
     property real _outerMargin: (width * 0.05) / 2
     property real _outerRadius: width / 2
     property real _innerRadius: _outerRadius - _outerMargin
 
-    // Prevent all clicks from going through to lower layers
+    // Предотвратить переход всех кликов на нижние слои
     DeadMouseArea {
         anchors.fill: parent
     }
 
-    QGCAttitudeWidget {
-        id:                         attitude
+    QGCCompassWidget { // компас
+        id:                         compass
         anchors.horizontalCenter:   parent.horizontalCenter
+//////////        anchors.topMargin:          _outerMargin * 2
         anchors.topMargin:          _outerMargin
+//////////        anchors.top:                attitude.bottom
         anchors.top:                parent.top
         size:                       _innerRadius * 2
         vehicle:                    globals.activeVehicle
     }
 
-    QGCCompassWidget {
+    QGCAttitudeWidget { // авиагоризонт
+        id:                         attitude
+        anchors.horizontalCenter:   parent.horizontalCenter
+//////////        anchors.topMargin:          _outerMargin
+        anchors.topMargin:          _outerMargin * 2
+//////////        anchors.top:                parent.top
+        anchors.bottom:             parent.bottom
+        size:                       _innerRadius * 2
+        vehicle:                    globals.activeVehicle
+    }
+
+/*//////////    QGCCompassWidget { // компас
         id:                         compass
         anchors.horizontalCenter:   parent.horizontalCenter
         anchors.topMargin:          _outerMargin * 2
         anchors.top:                attitude.bottom
         size:                       _innerRadius * 2
         vehicle:                    globals.activeVehicle
-    }
+    } //////////*/
 }

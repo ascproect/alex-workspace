@@ -22,10 +22,12 @@ import QGroundControl.Palette       1.0
 import QGroundControl.Vehicle       1.0
 import QGroundControl.FlightMap     1.0
 
-Loader {
+Loader { // загружает разные варианты представления авиагоризонта и компаса
     width:  parent.width
-    source: QGroundControl.settingsManager.flyViewSettings.alternateInstrumentPanel.rawValue ?
-                "qrc:/qml/QGCInstrumentWidgetAlternate.qml" : "qrc:/qml/QGCInstrumentWidget.qml"
-
+/*//////////    source: QGroundControl.settingsManager.flyViewSettings.alternateInstrumentPanel.rawValue ?
+                "qrc:/qml/QGCInstrumentWidgetAlternate.qml" : // крупные, вертикально рассположенные авиагоризонт и компас
+                "qrc:/qml/QGCInstrumentWidget.qml" // маленькие, горизонтально рассположенные авиагоризонт и компас
+//////////*/
+    source: "qrc:/qml/QGCInstrumentWidgetAlternate.qml"
     property var missionController
 }

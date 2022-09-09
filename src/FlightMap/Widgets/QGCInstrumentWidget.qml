@@ -38,7 +38,7 @@ ColumnLayout {
 
         DeadMouseArea { anchors.fill: parent }
 
-        QGCAttitudeWidget {
+        QGCAttitudeWidget { // авиагоризонт
             id:                     attitude
             anchors.leftMargin:     _topBottomMargin
             anchors.left:           parent.left
@@ -47,7 +47,7 @@ ColumnLayout {
             anchors.verticalCenter: parent.verticalCenter
         }
 
-        QGCCompassWidget {
+        QGCCompassWidget { // компас
             id:                     compass
             anchors.leftMargin:     _spacing
             anchors.left:           attitude.right
