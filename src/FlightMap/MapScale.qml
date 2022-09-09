@@ -171,7 +171,26 @@ Item {
         visible:            _zoomButtonsVisible
         onClicked:          mapControl.zoomLevel -= 0.5
     }
-/////////
+
+    QGCButton { // кнопка "+" на панели масштаба
+        id:                 zoomUpButton
+        anchors.top:        scaleText.top
+//////////        anchors.bottom:     rightEnd.bottom
+        anchors.bottom:     zoomDownButton.bottom
+//////////        anchors.leftMargin: ScreenTools.defaultFontPixelWidth / 2
+//////////        anchors.left:       zoomDownButton.right
+//////////        anchors.leftMargin: terrainButton.visible ? ScreenTools.defaultFontPixelWidth / 2 : 0
+//////////        anchors.left:       terrainButton.visible ? terrainButton.right : terrainButton.left
+        anchors.leftMargin: ScreenTools.defaultFontPixelWidth / 2
+        anchors.left: zoomDownButton.right
+        text:               qsTr("+")
+        width:              height
+        opacity:            0.75
+        visible:            _zoomButtonsVisible
+        onClicked:          mapControl.zoomLevel += 0.5
+    }
+//////////
+
     Rectangle {
         id:                 leftEnd
         anchors.top:        scaleText.bottom
@@ -179,8 +198,10 @@ Item {
 //////////        anchors.left:       buttonsOnLeft ?
 //////////                                (_zoomButtonsVisible ? zoomDownButton.right : (terrainButtonVisible ? terrainButton.right : parent.left)) :
 //////////                                parent.left
+//////////        anchors.leftMargin: ScreenTools.defaultFontPixelWidth / 2
+//////////        anchors.left: zoomDownButton.right
         anchors.leftMargin: ScreenTools.defaultFontPixelWidth / 2
-        anchors.left: zoomDownButton.right
+        anchors.left: zoomUpButton.right
 
         width:              2
         height:             ScreenTools.defaultFontPixelHeight
@@ -229,7 +250,7 @@ Item {
         opacity:            0.75
         visible:            _zoomButtonsVisible
         onClicked:          mapControl.zoomLevel -= 0.5
-    } //////////*/
+    }
 
 
     QGCButton { // кнопка "+" на панели масштаба
@@ -245,7 +266,7 @@ Item {
         opacity:            0.75
         visible:            _zoomButtonsVisible
         onClicked:          mapControl.zoomLevel += 0.5
-    }
+    } //////////*/
 
     Component.onCompleted: {
         if (scale.visible) {
