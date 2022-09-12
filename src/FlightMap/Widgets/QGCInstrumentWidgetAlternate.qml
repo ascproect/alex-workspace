@@ -17,13 +17,14 @@ import QGroundControl.FlightMap     1.0
 import QGroundControl.Palette       1.0
 
 Rectangle {
-    height: _outerRadius * 5
+//////////Item {
+//////////    height: _outerRadius * 5
+    height: _outerRadius * 6
 //////////    radius: _outerRadius
 
-    color:  QGroundControl.globalPalette.window
-//////////
-//    opacity: 0.1
-//////////
+//////////    color:  QGroundControl.globalPalette.window
+    opacity: 0.5
+    color: "orange"
 
     property real _outerMargin: (width * 0.05) / 2
     property real _outerRadius: width / 2
@@ -34,9 +35,19 @@ Rectangle {
         anchors.fill: parent
     }
 
+/*    Row {
+        z: 1
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.margins: 10
+        spacing: 10
+    } */
+
     QGCCompassWidget { // компас
         id:                         compass
-        anchors.horizontalCenter:   parent.horizontalCenter
+//////////        anchors.horizontalCenter:   parent.horizontalCenter
+        anchors.right: parent.right
+        anchors.rightMargin: _outerMargin
 //////////        anchors.topMargin:          _outerMargin * 2
         anchors.topMargin:          _outerMargin
 //////////        anchors.top:                attitude.bottom

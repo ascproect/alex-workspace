@@ -319,12 +319,13 @@ QString FirmwarePlugin::vehicleImageOutline(const Vehicle*) const
 
 QString FirmwarePlugin::vehicleImageCompass(const Vehicle*) const
 {
-    return QStringLiteral("/qmlimages/compassInstrumentArrow.svg");
+//////////    return QStringLiteral("/qmlimages/compassInstrumentArrow.svg");
+    return QStringLiteral("/qmlimages/compassInstrumentDoubleArrow.svg");
 }
 
 const QVariantList& FirmwarePlugin::toolIndicators(const Vehicle*)
 {
-    //-- Default list of indicators for all vehicles.
+    //-- Список индикаторов по умолчанию для всех летательных аппаратов.
     if(_toolIndicatorList.size() == 0) {
         _toolIndicatorList = QVariantList({
             QVariant::fromValue(QUrl::fromUserInput("qrc:/toolbar/MessageIndicator.qml")),
@@ -332,6 +333,8 @@ const QVariantList& FirmwarePlugin::toolIndicators(const Vehicle*)
             QVariant::fromValue(QUrl::fromUserInput("qrc:/toolbar/TelemetryRSSIIndicator.qml")),
             QVariant::fromValue(QUrl::fromUserInput("qrc:/toolbar/RCRSSIIndicator.qml")),
             QVariant::fromValue(QUrl::fromUserInput("qrc:/toolbar/BatteryIndicator.qml")),
+
+//            QVariant::fromValue(QUrl::fromUserInput("qrc:/toolbar/Rect.qml")),
         });
     }
     return _toolIndicatorList;
@@ -339,12 +342,16 @@ const QVariantList& FirmwarePlugin::toolIndicators(const Vehicle*)
 
 const QVariantList& FirmwarePlugin::modeIndicators(const Vehicle*)
 {
-    //-- Default list of indicators for all vehicles.
+    //-- Список индикаторов по умолчанию для всех летательных аппаратов.
     if(_modeIndicatorList.size() == 0) {
         _modeIndicatorList = QVariantList({
             QVariant::fromValue(QUrl::fromUserInput("qrc:/toolbar/ROIIndicator.qml")),
             QVariant::fromValue(QUrl::fromUserInput("qrc:/toolbar/MultiVehicleSelector.qml")),
             QVariant::fromValue(QUrl::fromUserInput("qrc:/toolbar/LinkIndicator.qml")),
+
+            QVariant::fromValue(QUrl::fromUserInput("qrc:/toolbar/Rect.qml")),
+            QVariant::fromValue(QUrl::fromUserInput("qrc:/toolbar/Rect1.qml")),
+//            QVariant::fromValue(QUrl::fromUserInput("qrc:/FlightDisplay/FlyViewToolStrip.qml")),
         });
     }
     return _modeIndicatorList;

@@ -72,17 +72,29 @@ Item {
     Rectangle {
         id:             borderRect
         anchors.fill:   parent
-        radius:         width / 2
+//////////        radius:         width / 2
         color:          qgcPal.window
         border.color:   qgcPal.text
         border.width:   1
+//////////
+        opacity: 0.0
+//////////
     }
+
+    Text {
+        id: _nord
+        x: 110
+        y: 12
+        font.pointSize: 12
+        color: qgcPal.text
+        text: "N"
+    }
+
 
     Item {
         id:             instrument
         anchors.fill:   parent
         visible:        false
-
 
         Image {
             id:                 cOGPointer
@@ -100,7 +112,7 @@ Item {
             }
         }
 
-        Image {
+/*//////////        Image {
             id:                 nextWPPointer
             source:             isHeadingToNextWPOK() ? "/qmlimages/compassDottedLine.svg":"" 
             mipmap:             true
@@ -114,7 +126,7 @@ Item {
                 origin.y:       cOGPointer.height / 2
                 angle:         _angle
             }
-        }
+        } //////////*/
 
         Image {
             id:                     homePointer
@@ -132,14 +144,17 @@ Item {
             }
         }
 
-        Image {
+        Image { // сама стрелка компаса
             id:                 pointer
             width:              size * 0.65
             source:             vehicle ? vehicle.vehicleImageCompass : ""
             mipmap:             true
             sourceSize.width:   width
             fillMode:           Image.PreserveAspectFit
-            anchors.centerIn:   parent
+//////////            anchors.centerIn:   parent
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.right: parent.right
+//////////
             transform: Rotation {
                 origin.x:       pointer.width  / 2
                 origin.y:       pointer.height / 2
@@ -148,7 +163,7 @@ Item {
         }
 
 
-        QGCColoredImage {
+/*//////////        QGCColoredImage { // кольцо вокруг стрелки компаса с буквами и делениями
             id:                 compassDial
             source:             "/qmlimages/compassInstrumentDial.svg"
             mipmap:             true
@@ -161,10 +176,10 @@ Item {
                 origin.y:       compassDial.height / 2
                 angle:          isNoseUpLocked()?-_heading:0
             }
-        }
+        } //////////*/
 
 
-        Rectangle {
+/*//////////        Rectangle { // прямоугольник в середине компаса, индицирует состояние компаса "OFF" или величину угла
             anchors.centerIn:   parent
             width:              size * 0.35
             height:             size * 0.2
@@ -183,7 +198,7 @@ Item {
                 property string _headingString2: _headingString.length === 1 ? "0" + _headingString : _headingString
                 property string _headingString3: _headingString2.length === 2 ? "0" + _headingString2 : _headingString2
             }
-        }
+        } //////////*/
     }
 
     Rectangle {
