@@ -33,35 +33,59 @@ Item {
     property real _rollAngle:   vehicle ? vehicle.roll.rawValue  : 0
     property real _pitchAngle:  vehicle ? vehicle.pitch.rawValue : 0
 
-    width:  size
-    height: size
+    width:  size * 1.4
+    height: size * 1.14
+//////////
+    Rectangle {
+        id: fon
+        anchors.centerIn: parent
+        anchors.fill: parent
+        color: qgcPal.window
 
+        Image {
+            id: avionika
+            source: "/qmlimages/avionika.svg"
+            anchors.top: parent.top
+            transform: Scale {
+                origin.x: 0
+                origin.y: 0
+                xScale: 0.1933
+                yScale: 0.1933
+            }
+        }
+    }
+//////////
     QGCPalette { id: qgcPal; colorGroupEnabled: enabled }
 
     Item {
         id:             instrument
-        anchors.fill:   parent
+        width: size * 0.9
+        height: size * 0.9
+//////////        anchors.fill:   parent
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+///////////
         visible:        false
 
         //----------------------------------------------------
-        //-- Artificial Horizon
+        //-- Искусственный горизонт
         QGCArtificialHorizon {
             rollAngle:          _rollAngle
             pitchAngle:         _pitchAngle
             anchors.fill:       parent
         }
         //----------------------------------------------------
-        //-- Pointer
-        Image {
+        //-- Указатель
+/*//////////        Image {
             id:                 pointer
             source:             "/qmlimages/attitudePointer.svg"
             mipmap:             true
             fillMode:           Image.PreserveAspectFit
             anchors.fill:       parent
             sourceSize.height:  parent.height
-        }
+        } //////////*/
         //----------------------------------------------------
-        //-- Instrument Dial
+        //-- Циферблат прибора
         Image {
             id:                 instrumentDial
             source:             "/qmlimages/attitudeDial.svg"
@@ -70,14 +94,16 @@ Item {
             anchors.fill:       parent
             sourceSize.height:  parent.height
             transform: Rotation {
-                origin.x:       root.width  / 2
-                origin.y:       root.height / 2
+                origin.x:       root.width  / 3.1
+                origin.y:       root.height / 3.1
                 angle:          -_rollAngle
             }
         }
         //----------------------------------------------------
-        //-- Pitch
-        QGCPitchIndicator {
+        //-- шкала угла наклона
+
+
+/*//////////        QGCPitchIndicator {
             id:                 pitchWidget
             visible:            root.showPitch
             size:               root.size * 0.5
@@ -85,9 +111,9 @@ Item {
             pitchAngle:         _pitchAngle
             rollAngle:          _rollAngle
             color:              Qt.rgba(0,0,0,0)
-        }
+        } //////////*/
         //----------------------------------------------------
-        //-- Cross Hair
+        //-- Перекрестие
         Image {
             id:                 crossHair
             anchors.centerIn:   parent

@@ -25,8 +25,15 @@ import QGroundControl.Palette      1.0
 
 Item {
     id:     root
-    width:  size
-    height: size
+    width:  size * 0.64
+    height: size * 0.73
+
+    Text {
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: qgcPal.text
+        font.pointSize: 12
+        text: "N"
+    }
 
     property real size:     _defaultSize
     property var  vehicle:  null
@@ -73,28 +80,17 @@ Item {
         id:             borderRect
         anchors.fill:   parent
 //////////        radius:         width / 2
-        color:          qgcPal.window
-        border.color:   qgcPal.text
-        border.width:   1
-//////////
+//////////        color:          qgcPal.window
+//////////        border.color:   qgcPal.text
+//////////        border.width:   1
         opacity: 0.0
-//////////
     }
-
-    Text {
-        id: _nord
-        x: 110
-        y: 12
-        font.pointSize: 12
-        color: qgcPal.text
-        text: "N"
-    }
-
 
     Item {
         id:             instrument
         anchors.fill:   parent
         visible:        false
+
 
         Image {
             id:                 cOGPointer
@@ -144,17 +140,15 @@ Item {
             }
         }
 
-        Image { // сама стрелка компаса
+        Image {
             id:                 pointer
             width:              size * 0.65
             source:             vehicle ? vehicle.vehicleImageCompass : ""
             mipmap:             true
             sourceSize.width:   width
             fillMode:           Image.PreserveAspectFit
-//////////            anchors.centerIn:   parent
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: parent.right
-//////////
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
             transform: Rotation {
                 origin.x:       pointer.width  / 2
                 origin.y:       pointer.height / 2
@@ -163,7 +157,7 @@ Item {
         }
 
 
-/*//////////        QGCColoredImage { // кольцо вокруг стрелки компаса с буквами и делениями
+/*//////////        QGCColoredImage {
             id:                 compassDial
             source:             "/qmlimages/compassInstrumentDial.svg"
             mipmap:             true
@@ -179,7 +173,7 @@ Item {
         } //////////*/
 
 
-/*//////////        Rectangle { // прямоугольник в середине компаса, индицирует состояние компаса "OFF" или величину угла
+/*//////////        Rectangle {
             anchors.centerIn:   parent
             width:              size * 0.35
             height:             size * 0.2

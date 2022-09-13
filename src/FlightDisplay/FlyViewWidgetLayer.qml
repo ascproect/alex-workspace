@@ -106,11 +106,11 @@ Item {
         visible:            !multiVehiclePanelSelector.showSingleVehiclePanel
     }
 
-    FlyViewInstrumentPanel { // авиагоризонт и компас
+/*    FlyViewInstrumentPanel { // авиагоризонт и компас
         id:                         instrumentPanel
         anchors.margins:            _toolsMargin
 //////////        anchors.top:                multiVehiclePanelSelector.visible ? multiVehiclePanelSelector.bottom : parent.top
-        anchors.bottom: parent.bottom //привязать авиагоризонт и компас к внизу
+        anchors.bottom: parent.bottom // авиагоризонт и компас внизу
         anchors.right:              parent.right // справа
         width:                      _rightPanelWidth
         spacing:                    _toolsMargin
@@ -118,9 +118,37 @@ Item {
         availableHeight:            parent.height - y - _toolsMargin
 
         property real rightInset: visible ? parent.width - x : 0
+    } */
+
+    QGCCompassWidget { // компас
+        id:                         compass
+//////////        anchors.horizontalCenter:   parent.horizontalCenter
+//////////        anchors.topMargin:          _outerMargin * 2
+//////////        anchors.topMargin:          _outerMargin
+        anchors.topMargin:          50
+        anchors.top:                parent.top
+        anchors.rightMargin:        _margins * 4
+        anchors.right:              parent.right
+        size:                       200
+        vehicle:                    globals.activeVehicle
     }
 
-/*//////////    PhotoVideoControl { // Управление фото и видео. Это та маленькая красненькая кнопка что справа и посередине по высоте
+    QGCAttitudeWidget { // авиагоризонт
+        id:                         attitude
+//////////        anchors.horizontalCenter:   parent.horizontalCenter
+//////////        anchors.topMargin:          _outerMargin
+//////////        anchors.topMargin:          _outerMargin * 2
+        anchors.bottomMargin:       _margins * 6
+        anchors.bottom:             parent.bottom
+        anchors.rightMargin:        _margins * 4
+        anchors.right:              parent.right
+        size:                       200
+        vehicle:                    globals.activeVehicle
+    }
+
+
+/*/////////
+    PhotoVideoControl { // это та маленькая красненькая кнопка что справа и посередине по высоте
         id:                     photoVideoControl
         anchors.margins:        _toolsMargin
         anchors.right:          parent.right
@@ -146,15 +174,14 @@ Item {
         ]
 
         property bool _verticalCenter: !QGroundControl.settingsManager.flyViewSettings.alternateInstrumentPanel.rawValue
-    }//////////*/
-
+    }
+/////////*/
+/*/////////
     TelemetryValuesBar { // панель телеметрии внизу посередине
         id:                 telemetryPanel
         x:                  recalcXPosition()
         anchors.margins:    _toolsMargin
-        ////////// скроем ненужное
-        visible: false
-        //////////
+
         // States for custom layout support
         states: [
             State {
@@ -217,7 +244,7 @@ Item {
             }
         }
     }
-
+/////////*/
     //-- Virtual Joystick
     Loader {
         id:                         virtualJoystickMultiTouch
@@ -269,7 +296,7 @@ Item {
         anchors.margins:    _toolsMargin
         anchors.left:       toolStrip.right
 //////////        anchors.top:        parent.top
-        anchors.bottom: parent.bottom
+        anchors.bottom: parent.bottom // панель настройки массштаба внизу
         mapControl:         _mapControl
         buttonsOnLeft:      false
         visible:            !ScreenTools.isTinyScreen && QGroundControl.corePlugin.options.flyView.showMapScale && mapControl.pipState.state === mapControl.pipState.fullState

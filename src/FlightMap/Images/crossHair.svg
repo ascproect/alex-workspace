@@ -1,10 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 288 288 36" enable-background="new 0 288 288 36" xml:space="preserve">
-<rect y="288" fill="none" width="288" height="36"/>
-<line fill="none" stroke="#7D1317" stroke-width="4" stroke-miterlimit="10" x1="0" y1="306" x2="72" y2="306"/>
-<line fill="none" stroke="#7D1317" stroke-width="4" stroke-miterlimit="10" x1="288" y1="306" x2="216" y2="306"/>
-<polyline fill="none" stroke="#7D1317" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" points="194.488,319.07 
-	144,306 93.512,319.07 "/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="186mm" height="24mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 18600 2400"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:white;stroke-width:100}
+    .fil0 {fill:none}
+    .fil1 {fill:black}
+   ]]>
+  </style>
+ </defs>
+ <g id="Слой_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" width="18600" height="2400"/>
+  <g id="_1848640369760">
+   <polygon class="fil1 str0" points="84,56 5227,56 5227,2283 4710,2283 4710,573 84,573 "/>
+   <polygon class="fil1 str0" points="18528,56 13385,56 13385,2283 13902,2283 13902,573 18528,573 "/>
+   <polygon class="fil1 str0" points="9048,573 9565,573 9565,56 9048,56 "/>
+  </g>
+ </g>
 </svg>
