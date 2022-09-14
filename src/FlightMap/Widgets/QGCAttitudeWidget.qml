@@ -16,6 +16,7 @@
 
 import QtQuick              2.3
 import QtGraphicalEffects   1.0
+import QtQuick.Controls 2.15
 
 import QGroundControl               1.0
 import QGroundControl.Controls      1.0
@@ -51,6 +52,168 @@ Item {
                 origin.y: 0
                 xScale: 0.1933
                 yScale: 0.1933
+            }
+        }
+
+        Button { // кнопка увеличения скорости самолета
+            id: speedIncreaseButton
+            anchors.left: parent.left
+            anchors.leftMargin: 5
+            anchors.bottom: parent.verticalCenter
+            anchors.bottomMargin: 25
+            text: qsTr("+")
+
+            contentItem: Text {
+                text: speedIncreaseButton.text
+                color: qgcPal.text
+                horizontalAlignment: Text.AlignHCenter
+                font.pointSize: 16
+                font.bold: true
+            }
+
+            background: Rectangle {
+                implicitWidth: 40
+                implicitHeight: 40
+                radius: implicitWidth / 2
+                color: qgcPal.window
+                border.width: 1
+                border.color: qgcPal.text
+            }
+        }
+
+        Rectangle { // граница квадрата
+            id: borderSpeedInput
+            width: 40
+            height: 40
+            radius: 5
+            anchors.left: parent.left
+            anchors.leftMargin: 5
+            anchors.top: parent.verticalCenter
+            anchors.topMargin: - 20
+            border.width: 1
+            border.color: qgcPal.text
+            color: qgcPal.window
+
+            TextInput { // поле ввода скорости самолета
+                id: speedInput
+                anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+                color: qgcPal.text
+                font.pixelSize: 14
+                width: parent.width - 3
+                maximumLength: 3
+                focus: true
+                validator: IntValidator {
+                    bottom: 0
+                    top: 300
+                }
+            }
+        }
+
+        Button { // кнопка уменьшения скорости самолета
+            id: speedReductionButton
+            anchors.left: parent.left
+            anchors.leftMargin: 5
+            anchors.top: parent.verticalCenter
+            anchors.topMargin: 25
+            text: qsTr("-")
+
+            contentItem: Text {
+                text: speedReductionButton.text
+                color: qgcPal.text
+                horizontalAlignment: Text.AlignHCenter
+                font.pointSize: 16
+                font.bold: true
+            }
+
+            background: Rectangle {
+                implicitWidth: 40
+                implicitHeight: 40
+                radius: implicitWidth / 2
+                color: qgcPal.window
+                border.width: 1
+                border.color: qgcPal.text
+            }
+        }
+
+        Button { // кнопка увеличения высоты полета
+            id: flightAltitudeIncreaseButton
+            anchors.right: parent.right
+            anchors.rightMargin: 5
+            anchors.bottom: parent.verticalCenter
+            anchors.bottomMargin: 25
+            text: qsTr("+")
+
+            contentItem: Text {
+                text: flightAltitudeIncreaseButton.text
+                color: qgcPal.text
+                horizontalAlignment: Text.AlignHCenter
+                font.pointSize: 16
+                font.bold: true
+            }
+
+            background: Rectangle {
+                implicitWidth: 40
+                implicitHeight: 40
+                radius: implicitWidth / 2
+                color: qgcPal.window
+                border.width: 1
+                border.color: qgcPal.text
+            }
+        }
+
+        Rectangle { // граница квадрата
+            id: borderAltitudeInput
+            width: 40
+            height: 40
+            radius: 5
+            anchors.right: parent.right
+            anchors.rightMargin: 5
+            anchors.top: parent.verticalCenter
+            anchors.topMargin: - 20
+            border.width: 1
+            border.color: qgcPal.text
+            color: qgcPal.window
+
+            TextInput { // поле ввода скорости самолета
+                id: altitudeInput
+                anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+                color: qgcPal.text
+                font.pixelSize: 14
+                width: parent.width - 4
+                maximumLength: 4
+                focus: true
+                validator: IntValidator {
+                    bottom: 0
+                    top: 5000
+                }
+            }
+        }
+
+        Button { // кнопка уменьшения высоты полета
+            id: altitudeReductionButton
+            anchors.right: parent.right
+            anchors.rightMargin: 5
+            anchors.top: parent.verticalCenter
+            anchors.topMargin: 25
+            text: qsTr("-")
+
+            contentItem: Text {
+                text: altitudeReductionButton.text
+                color: qgcPal.text
+                horizontalAlignment: Text.AlignHCenter
+                font.pointSize: 16
+                font.bold: true
+            }
+
+            background: Rectangle {
+                implicitWidth: 40
+                implicitHeight: 40
+                radius: implicitWidth / 2
+                color: qgcPal.window
+                border.width: 1
+                border.color: qgcPal.text
             }
         }
     }
