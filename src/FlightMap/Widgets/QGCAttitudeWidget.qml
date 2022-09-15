@@ -36,12 +36,31 @@ Item {
 
     width:  size * 1.4
     height: size * 1.14
-//////////
+
     Rectangle {
         id: fon
+
+        property string normalColor: qgcPal.window
+        property string hoveredColor: "#3f3f3f"
+        property string pressedColor: "black"
+
+        QtObject{
+            id:attrs;
+            property int counterSpeed;
+            property int counterAltitude;
+            Component.onCompleted: {
+                attrs.counterSpeed=0;
+                attrs.counterAltitude=0;
+            }
+        }
+
         anchors.centerIn: parent
         anchors.fill: parent
         color: qgcPal.window
+
+/*//////////        Component.onCompleted: {
+                console.log("qgcPal.window: ", color.r, color.g, color.b, color.a);
+        } //////////*/
 
         Image {
             id: avionika
@@ -75,9 +94,19 @@ Item {
                 implicitWidth: 40
                 implicitHeight: 40
                 radius: implicitWidth / 2
-                color: qgcPal.window
                 border.width: 1
                 border.color: qgcPal.text
+
+                color: speedIncreaseButton.pressed ? fon.pressedColor :
+                       speedIncreaseButton.hovered ? fon.hoveredColor :
+                                                     fon.normalColor
+            }
+
+            onClicked: {
+                if(attrs.counterSpeed < 299) {
+                    attrs.counterSpeed++
+                }
+                speedInput.text=attrs.counterSpeed
             }
         }
 
@@ -96,6 +125,7 @@ Item {
 
             TextInput { // поле ввода скорости самолета
                 id: speedInput
+                text: "0"
                 anchors.centerIn: parent
                 horizontalAlignment: Text.AlignHCenter
                 color: qgcPal.text
@@ -103,9 +133,15 @@ Item {
                 width: parent.width - 3
                 maximumLength: 3
                 focus: true
-                validator: IntValidator {
-                    bottom: 0
-                    top: 300
+                validator: RegExpValidator {
+                    regExp: /^(([1-9]|[1-9][0-9]|[1-2][0-9][0-9]|299)([,-](?=\d)|$))+$/
+                }
+            }
+
+            Keys.onPressed: {
+                // 16777220 - код клавиши Enter
+                if(event.key === 16777220) {
+                    attrs.counterSpeed = speedInput.text
                 }
             }
         }
@@ -130,9 +166,19 @@ Item {
                 implicitWidth: 40
                 implicitHeight: 40
                 radius: implicitWidth / 2
-                color: qgcPal.window
                 border.width: 1
                 border.color: qgcPal.text
+
+                color: speedReductionButton.pressed ? fon.pressedColor :
+                       speedReductionButton.hovered ? fon.hoveredColor :
+                                                     fon.normalColor
+            }
+
+            onClicked: {
+                if(attrs.counterSpeed > 1) {
+                    attrs.counterSpeed--
+                }
+                speedInput.text=attrs.counterSpeed
             }
         }
 
@@ -156,9 +202,19 @@ Item {
                 implicitWidth: 40
                 implicitHeight: 40
                 radius: implicitWidth / 2
-                color: qgcPal.window
                 border.width: 1
                 border.color: qgcPal.text
+
+                color: flightAltitudeIncreaseButton.pressed ? fon.pressedColor :
+                       flightAltitudeIncreaseButton.hovered ? fon.hoveredColor :
+                                                     fon.normalColor
+            }
+
+            onClicked: {
+                if(attrs.counterAltitude < 4999) {
+                    attrs.counterAltitude++
+                }
+                altitudeInput.text=attrs.counterAltitude
             }
         }
 
@@ -175,8 +231,9 @@ Item {
             border.color: qgcPal.text
             color: qgcPal.window
 
-            TextInput { // поле ввода скорости самолета
+            TextInput { // поле ввода высоты полета
                 id: altitudeInput
+                text: "0"
                 anchors.centerIn: parent
                 horizontalAlignment: Text.AlignHCenter
                 color: qgcPal.text
@@ -184,9 +241,15 @@ Item {
                 width: parent.width - 4
                 maximumLength: 4
                 focus: true
-                validator: IntValidator {
-                    bottom: 0
-                    top: 5000
+                validator: RegExpValidator {
+                    regExp: /^(([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-4][0-9][0-9][0-9]|4999)([,-](?=\d)|$))+$/
+                }
+            }
+
+            Keys.onPressed: {
+                // 16777220 - код клавиши Enter
+                if(event.key === 16777220) {
+                    attrs.counterAltitude = altitudeInput.text
                 }
             }
         }
@@ -211,13 +274,23 @@ Item {
                 implicitWidth: 40
                 implicitHeight: 40
                 radius: implicitWidth / 2
-                color: qgcPal.window
                 border.width: 1
                 border.color: qgcPal.text
+
+                color: altitudeReductionButton.pressed ? fon.pressedColor :
+                       altitudeReductionButton.hovered ? fon.hoveredColor :
+                                                     fon.normalColor
+            }
+
+            onClicked: {
+                if(attrs.counterAltitude > 1) {
+                    attrs.counterAltitude--
+                }
+                altitudeInput.text=attrs.counterAltitude
             }
         }
     }
-//////////
+
     QGCPalette { id: qgcPal; colorGroupEnabled: enabled }
 
     Item {
