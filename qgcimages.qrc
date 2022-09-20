@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/qmlimages">
+	<file alias="antenna-red.svg">src/FlightMap/Images/antenna-red.svg</file>
+	<file alias="antenna-yellow.svg">src/FlightMap/Images/antenna-yellow.svg</file>
+	<file alias="antenna-green.svg">src/FlightMap/Images/antenna-green.svg</file>
 	<file alias="avionika.svg">src/FlightMap/Images/avionika.svg</file>
         <file alias="adsbVehicle.svg">src/FlightMap/Images/adsbVehicle.svg</file>
         <file alias="close.png">src/ui/toolbar/Images/close.png</file>
