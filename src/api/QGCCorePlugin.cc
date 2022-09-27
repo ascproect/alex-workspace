@@ -99,6 +99,7 @@ public:
     QGCOptions*         defaultOptions          = nullptr;
     QVariantList        settingsList;
     QVariantList        analyzeList;
+//////////    QVariant            settingsLinks;
 
     QmlObjectListModel _emptyCustomMapItems;
 };
@@ -128,6 +129,16 @@ void QGCCorePlugin::setToolbox(QGCToolbox *toolbox)
     qmlRegisterUncreatableType<QGCFlyViewOptions>   ("QGroundControl", 1, 0, "QGCFlyViewOptions",   "Reference only");
 }
 
+/*////////// QVariant &QGCCorePlugin::communicationLinks()
+{
+    qDebug("communicationLinks");
+    _p->pCommLinks = new QmlComponentInfo(tr("Comm Links"),
+                                               QUrl::fromUserInput("qrc:/qml/LinkSettings.qml"),
+                                               QUrl::fromUserInput("qrc:/res/waves.svg"));
+    _p->settingsLinks = QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pCommLinks));
+    return _p->settingsLinks;
+} //////////*/
+
 QVariantList &QGCCorePlugin::settingsPages()
 {
     if(!_p->pGeneral) {
@@ -136,12 +147,12 @@ QVariantList &QGCCorePlugin::settingsPages()
                                             QUrl::fromUserInput("qrc:/res/gear-white.svg"));
         _p->settingsList.append(QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pGeneral)));
         _p->pCommLinks = new QmlComponentInfo(tr("Comm Links"),
-                                              QUrl::fromUserInput("qrc:/qml/LinkSettings.qml"),
-                                              QUrl::fromUserInput("qrc:/res/waves.svg"));
+                                            QUrl::fromUserInput("qrc:/qml/LinkSettings.qml"),
+                                            QUrl::fromUserInput("qrc:/res/waves.svg"));
         _p->settingsList.append(QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pCommLinks)));
         _p->pOfflineMaps = new QmlComponentInfo(tr("Offline Maps"),
-                                                QUrl::fromUserInput("qrc:/qml/OfflineMap.qml"),
-                                                QUrl::fromUserInput("qrc:/res/waves.svg"));
+                                            QUrl::fromUserInput("qrc:/qml/OfflineMap.qml"),
+                                            QUrl::fromUserInput("qrc:/res/waves.svg"));
         _p->settingsList.append(QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pOfflineMaps)));
 #if defined(QGC_GST_TAISYNC_ENABLED)
         _p->pTaisync = new QmlComponentInfo(tr("Taisync"),
@@ -151,14 +162,14 @@ QVariantList &QGCCorePlugin::settingsPages()
 #endif
 #if defined(QGC_GST_MICROHARD_ENABLED)
         _p->pMicrohard = new QmlComponentInfo(tr("Microhard"),
-                                              QUrl::fromUserInput("qrc:/qml/MicrohardSettings.qml"),
-                                              QUrl::fromUserInput(""));
+                                            QUrl::fromUserInput("qrc:/qml/MicrohardSettings.qml"),
+                                            QUrl::fromUserInput(""));
         _p->settingsList.append(QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pMicrohard)));
 #endif
 #if defined(QGC_AIRMAP_ENABLED)
         _p->pAirmap = new QmlComponentInfo(tr("AirMap"),
-                                           QUrl::fromUserInput("qrc:/qml/AirmapSettings.qml"),
-                                           QUrl::fromUserInput(""));
+                                            QUrl::fromUserInput("qrc:/qml/AirmapSettings.qml"),
+                                            QUrl::fromUserInput(""));
         _p->settingsList.append(QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pAirmap)));
 #endif
         _p->pMAVLink = new QmlComponentInfo(tr("MAVLink"),
@@ -169,21 +180,22 @@ QVariantList &QGCCorePlugin::settingsPages()
                                             QUrl::fromUserInput("qrc:/qml/QGroundControl/Controls/AppMessages.qml"));
         _p->settingsList.append(QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pConsole)));
         _p->pHelp = new QmlComponentInfo(tr("Help"),
-                                         QUrl::fromUserInput("qrc:/qml/HelpSettings.qml"));
+                                            QUrl::fromUserInput("qrc:/qml/HelpSettings.qml"));
         _p->settingsList.append(QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pHelp)));
 #if defined(QT_DEBUG)
         //-- These are always present on Debug builds
         _p->pMockLink = new QmlComponentInfo(tr("Mock Link"),
-                                             QUrl::fromUserInput("qrc:/qml/MockLink.qml"));
+                                            QUrl::fromUserInput("qrc:/qml/MockLink.qml"));
         _p->settingsList.append(QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pMockLink)));
         _p->pDebug = new QmlComponentInfo(tr("Debug"),
-                                          QUrl::fromUserInput("qrc:/qml/DebugWindow.qml"));
+                                            QUrl::fromUserInput("qrc:/qml/DebugWindow.qml"));
         _p->settingsList.append(QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pDebug)));
         _p->pQmlTest = new QmlComponentInfo(tr("Palette Test"),
                                             QUrl::fromUserInput("qrc:/qml/QmlTest.qml"));
         _p->settingsList.append(QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pQmlTest)));
 #endif
     }
+    qDebug("QGCCorePlugin::settingsPages");
     return _p->settingsList;
 }
 
@@ -447,7 +459,7 @@ QString QGCCorePlugin::stableVersionCheckFileUrl() const
 
 const QVariantList& QGCCorePlugin::toolBarIndicators(void)
 {
-    //-- Default list of indicators for all vehicles.
+    //-- Список индикаторов по умолчанию для всех летательных аппаратов.
     if(_toolBarIndicatorList.size() == 0) {
         _toolBarIndicatorList = QVariantList({
                                                  QVariant::fromValue(QUrl::fromUserInput("qrc:/toolbar/GPSRTKIndicator.qml")),

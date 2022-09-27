@@ -147,55 +147,8 @@ Item {
         vehicle:                    globals.activeVehicle
     }
 
-    Item {
-        id: _indicators
-        anchors.bottom: attitude.top
-        anchors.left: attitude.left
-        anchors.right: attitude.right
-        height: 45
+    DisconnectButtonIndicator {
 
-/*//////////        Rectangle {
-            id: _connect
-            height: 40
-            width: 40
-            radius: height / 2
-            color: "blue"
-            border.color: "white"
-            border.width: 1
-
-            Image {
-                source: "/qmlimages/antenna.svg"
-                anchors.centerIn: parent
-                scale: 0.06
-            }
-
-        } //////////*/
-        Button {
-            id: _connect
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.leftMargin: 5
-            icon.color: "transparent"
-            icon.source: "/qmlimages/antenna.svg"
-            ToolTip.visible: hovered
-            ToolTip.text: qsTr("Соединение")
-
-            background: Rectangle {
-
-                property string normalColor: qgcPal.window
-                property string hoveredColor: "#3f3f3f"
-                property string pressedColor: "#000000"
-
-                implicitWidth: 40
-                implicitHeight: 40
-                color: _connect.pressed ? pressedColor :
-                          _connect.hovered ? hoveredColor :
-                                               normalColor
-                radius: 20
-                border.width: 1.0
-                border.color: "#ffffff"
-            }
-        }
     }
 
 /*/////////

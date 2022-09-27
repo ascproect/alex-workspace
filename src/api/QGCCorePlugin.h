@@ -13,6 +13,7 @@
 #include "QGCPalette.h"
 #include "QGCMAVLink.h"
 #include "QmlObjectListModel.h"
+#include "QmlComponentInfo.h"
 
 #include <QObject>
 #include <QVariantList>
@@ -38,6 +39,7 @@ class QGCCameraManager;
 class QGCCameraControl;
 class QQuickItem;
 class InstrumentValueAreaController;
+class QmlComponentInfo;
 
 class QGCCorePlugin : public QGCTool
 {
@@ -46,6 +48,7 @@ public:
     QGCCorePlugin(QGCApplication* app, QGCToolbox* toolbox);
     ~QGCCorePlugin();
 
+//////////    Q_PROPERTY(QVariant             communicationLinks              READ communicationLinks                             NOTIFY communicationLinksChanged)
     Q_PROPERTY(QVariantList         settingsPages                   READ settingsPages                                  NOTIFY settingsPagesChanged)
     Q_PROPERTY(QVariantList         analyzePages                    READ analyzePages                                   NOTIFY analyzePagesChanged)
     Q_PROPERTY(int                  defaultSettings                 READ defaultSettings                                CONSTANT)
@@ -62,9 +65,12 @@ public:
 
     Q_INVOKABLE bool guidedActionsControllerLogging() const;
 
-    /// The list of settings under the Settings Menu
+//////////    virtual QVariant& communicationLinks();
+
+    /// Список установок в меню настроек
     /// @return A list of QGCSettings
     virtual QVariantList& settingsPages();
+
 
     /// The list of pages/buttons under the Analyze Menu
     /// @return A list of QmlPageInfo
@@ -198,6 +204,7 @@ public:
     static const int firstRunPromptIdsFirstCustomId = 10000;
 
 signals:
+//////////    void communicationLinksChanged  ();
     void settingsPagesChanged       ();
     void analyzePagesChanged        ();
     void showTouchAreasChanged      (bool showTouchAreas);

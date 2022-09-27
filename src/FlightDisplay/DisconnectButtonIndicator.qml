@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls         2.4
+import QtQuick.Layouts  1.11
 
 import QGroundControl                       1.0
 import QGroundControl.Controls              1.0
@@ -13,95 +14,74 @@ Item {
     anchors.left: attitude.left
     anchors.right: attitude.right
     height: 45
+/////////
+    x: mainWindow.height
+    Component.onCompleted: console.log("DisconnectButtonIndicator x: ", x)
+/////////
+    property var    _activeVehicle: QGroundControl.multiVehicleManager.activeVehicle
+    property var    _vehicleInAir:      _activeVehicle ? _activeVehicle.flying || _activeVehicle.landing : false
+    property bool   _communicationLost: _activeVehicle ? _activeVehicle.vehicleLinkManager.communicationLost : false
+    property string statusText
 
-/*//////////        Rectangle {
-        id: _connect
-        height: 40
-        width: 40
-        radius: height / 2
-        color: "blue"
-        border.color: "white"
-        border.width: 1
-
-        Image {
-            source: "/qmlimages/antenna.svg"
-            anchors.centerIn: parent
-            scale: 0.06
-        }
-
-    } //////////*/
-
-    property string _commLostText:      qsTr("Communication Lost") /// Связь потеряна
-    property string _readyToFlyText:    qsTr("Ready To Fly")       /// Готов к полету
-    property string _notReadyToFlyText: qsTr("Not Ready")          /// Не готов
-    property string _disconnectedText:  qsTr("Disconnected")       /// Отключено
-    property string _armedText:         qsTr("Armed")              /// Снаряжен
-    property string _flyingText:        qsTr("Flying")             /// Летает
-    property string _landingText:       qsTr("Landing")            /// Посадка
-
-    function fStatusSource() {
-
+    function statusButton() {
         if (_activeVehicle) {
             if (_communicationLost) {
-//////////                statusSource = "/qmlimages/antenna-red.svg"
-//////////                icon.source = "/qmlimages/antenna-red.svg"
-                console.log("_communicationLost")
-                return _connect.icon.source = "/qmlimages/antenna-red.svg"
+                statusText = "Связь потеряна"
+                return "/qmlimages/antenna-red.svg"
             }
             if (_activeVehicle.armed) {
-//////////                statusSource = "/qmlimages/antenna-green.svg"
-                console.log("armed")
-                return _connect.icon.source = "/qmlimages/antenna-green.svg"
-//////////                if (_activeVehicle.flying) {
-//////////                    return mainStatusLabel._flyingText
-//////////                } else if (_activeVehicle.landing) {
-//////////                    return mainStatusLabel._landingText
-//////////                } else {
-//////////                    return mainStatusLabel._armedText
+                if (_activeVehicle.flying) {
+                    statusText = "Летает"
+                } else if (_activeVehicle.landing) {
+                    statusText = "Приземление"
+                } else {
+                    statusText = "Снаряжен"
                 }
-            } /*////////// else {
+                return "/qmlimages/antenna-green.svg"
+            } else {
                 if (_activeVehicle.readyToFlyAvailable) {
                     if (_activeVehicle.readyToFly) {
-//////////                        statusSource = "/qmlimages/antenna-green.svg"
-                        console.log("readyToFly")
-                        return _connect.icon.source = "/qmlimages/antenna-green.svg"
+                        statusText = "Готов к полету"
+                        return "/qmlimages/antenna-green.svg"
                     } else {
-//////////                        statusSource = "/qmlimages/antenna-yellow.svg"
-                        console.log("no readyToFly")
-                        return _connect.icon.source = "/qmlimages/antenna-yellow.svg"
+                        statusText = "Не готов"
+                        return "/qmlimages/antenna-yellow.svg"
                     }
                 } else {
-                    // Best we can do is determine readiness based on AutoPilot component setup and health indicators from SYS_STATUS
+                    // Лучшее, что мы можем сделать, это определить готовность на основе настройки компонента AutoPilot и индикаторов работоспособности из SYS_STATUS.
                     if (_activeVehicle.allSensorsHealthy && _activeVehicle.autopilot.setupComplete) {
-                        console.log("allSensorsHealthy && setupComplete")
-//////////                        statusSource = "/qmlimages/antenna-green.svg"
-                        return _connect.icon.source = "/qmlimages/antenna-green.svg"
+                        statusText = "Готов к полету"
+                        return "/qmlimages/antenna-green.svg"
                     } else {
-//////////                        statusSource = "/qmlimages/antenna-yellow.svg"
-                        console.log("no allSensorsHealthy && no setupComplete")
-                        return _connect.icon.source = "/qmlimages/antenna-yellow.svg"
+                        statusText = "Не готов"
+                        return "/qmlimages/antenna-yellow.svg"
                     }
                 }
             }
-//////////        } else {
-//////////            statusSource = qgcPal.brandingPurple
-//////////        console.log("disconnectedText")
-//////////            return _connect.icon.source =
-        } //////////*/
+        } else {
+            statusText = "Связь потеряна"
+            return "/qmlimages/antenna-red.svg"
+        }
+    }
+
+    Loader {
+           id: container
+//////////           anchors.fill: parent
+           anchors.horizontalCenter: mainWindow.horizontalCenter
+//////////           anchors.verticalCenter: mainWindow.verticalCenter
     }
 
     Button {
-        id: _connect
+
+        id: mainStatusButton
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.leftMargin: 5
         icon.color: "transparent"
-        icon.source: "/qmlimages/antenna-green.svg"
-//////////        icon.source:  fStatusSource()
+        icon.source: statusButton()
 
         ToolTip.visible: hovered
-        ToolTip.text: qsTr("Соединение")
-//////////        ToolTip.text: statusText()
+        ToolTip.text: statusText
 
         background: Rectangle {
 
@@ -111,12 +91,15 @@ Item {
 
             implicitWidth: 40
             implicitHeight: 40
-            color: _connect.pressed ? pressedColor :
-                      _connect.hovered ? hoveredColor :
+            color: mainStatusButton.pressed ? pressedColor :
+                   mainStatusButton.hovered ? hoveredColor :
                                            normalColor
             radius: 20
             border.width: 1.0
             border.color: "#ffffff"
+        }
+        onClicked: {
+            container.source = "qrc:/qml/LinkSettings.qml"
         }
     }
 }

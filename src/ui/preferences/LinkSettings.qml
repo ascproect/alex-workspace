@@ -21,8 +21,12 @@ Rectangle {
     id:                 _linkRoot
     color:              qgcPal.window
     anchors.fill:       parent
-    anchors.margins:    ScreenTools.defaultFontPixelWidth
+//////////    anchors.margins:    ScreenTools.defaultFontPixelWidth
 
+    Component.onCompleted: console.log("_linkRoot completed")
+    border.color:       "orange"
+    border.width: 1
+//////////
     property var _currentSelection:     null
     property int _firstColumnWidth:     ScreenTools.defaultFontPixelWidth * 12
     property int _secondColumnWidth:    ScreenTools.defaultFontPixelWidth * 30
