@@ -19,19 +19,20 @@ import QGroundControl.Palette       1.0
 
 Rectangle {
     id:                 _linkRoot
-    color:              qgcPal.window
-    anchors.fill:       parent
-//////////    anchors.margins:    ScreenTools.defaultFontPixelWidth
 
-    Component.onCompleted: console.log("_linkRoot completed")
-    border.color:       "orange"
-    border.width: 1
-//////////
+    color:              qgcPal.window
+
+    anchors.fill:       parent
+    anchors.margins:    ScreenTools.defaultFontPixelWidth
+
     property var _currentSelection:     null
     property int _firstColumnWidth:     ScreenTools.defaultFontPixelWidth * 12
     property int _secondColumnWidth:    ScreenTools.defaultFontPixelWidth * 30
     property int _rowSpacing:           ScreenTools.defaultFontPixelHeight / 2
     property int _colSpacing:           ScreenTools.defaultFontPixelWidth / 2
+    property bool _link_settings:       false
+
+    Component.onCompleted: _link_settings = true
 
     QGCPalette {
         id:                 qgcPal
@@ -60,6 +61,7 @@ Rectangle {
     QGCFlickable {
         clip:               true
         anchors.top:        parent.top
+        anchors.topMargin:  ScreenTools.defaultFontPixelWidth
         width:              parent.width
         height:             parent.height - buttonRow.height
         contentHeight:      settingsColumn.height
@@ -136,6 +138,11 @@ Rectangle {
             enabled:    _currentSelection && _currentSelection.link
             onClicked:  _currentSelection.link.disconnect()
         }
+/*//////////        QGCButton {
+            text:       qsTr("Close")
+            enabled:    true
+            onClicked:  _linkSettings.sourceComponent = undefined
+        } //////////*/
         QGCButton {
             text:       qsTr("MockLink Options")
             visible:    _currentSelection && _currentSelection.link && _currentSelection.link.isMockLink

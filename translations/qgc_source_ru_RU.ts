@@ -5789,7 +5789,7 @@ Click Ok to start the auto-tuning process.
     <message>
       <location filename="../src/comm/QGCMAVLink.cc" line="75"/>
       <source>ArduPilot</source>
-      <translation type="unfinished">ArduPilot</translation>
+      <translation type="unfinished">ArduPilot 5792</translation>
     </message>
     <message>
       <location filename="../src/comm/QGCMAVLink.cc" line="77"/>
@@ -6375,7 +6375,7 @@ Click Ok to start the auto-tuning process.
       <location filename="../src/VehicleSetup/FirmwareUpgrade.qml" line="267"/>
       <location filename="../src/VehicleSetup/FirmwareUpgrade.qml" line="344"/>
       <source>ArduPilot</source>
-      <translation type="unfinished">ArduPilot</translation>
+      <translation type="unfinished">ArduPilot 6378</translation>
     </message>
     <message>
       <location filename="../src/VehicleSetup/FirmwareUpgrade.qml" line="289"/>
@@ -7051,17 +7051,17 @@ Click Ok to start the auto-tuning process.
     <message>
       <location filename="../src/ui/toolbar/GPSIndicator.qml" line="50"/>
       <source>GPS Status</source>
-      <translation type="unfinished">GPS Status</translation>
+      <translation type="unfinished">Состояние GPS</translation>
     </message>
     <message>
       <location filename="../src/ui/toolbar/GPSIndicator.qml" line="50"/>
       <source>GPS Data Unavailable</source>
-      <translation type="unfinished">GPS Data Unavailable</translation>
+      <translation type="unfinished">Данные GPS недоступны</translation>
     </message>
     <message>
       <location filename="../src/ui/toolbar/GPSIndicator.qml" line="63"/>
       <source>GPS Count:</source>
-      <translation type="unfinished">GPS Count:</translation>
+      <translation type="unfinished">GPS-счетчик:</translation>
     </message>
     <message>
       <location filename="../src/ui/toolbar/GPSIndicator.qml" line="64"/>
@@ -7096,7 +7096,7 @@ Click Ok to start the auto-tuning process.
     <message>
       <location filename="../src/ui/toolbar/GPSIndicator.qml" line="71"/>
       <source>Course Over Ground:</source>
-      <translation type="unfinished">Course Over Ground:</translation>
+      <translation type="unfinished">Курс относительно земли:</translation>
     </message>
   </context>
   <context>
@@ -8749,9 +8749,9 @@ Click Ok to start the auto-tuning process.
   <context>
     <name>LinkSettings</name>
     <message>
-      <location filename="../src/ui/preferences/LinkSettings.qml" line="95"/>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="99"/>
       <source>Delete</source>
-      <translation type="unfinished">Delete</translation>
+      <translation type="unfinished">Удалить</translation>
     </message>
     <message>
       <location filename="../src/ui/preferences/LinkSettings.qml" line="104"/>
@@ -8759,69 +8759,69 @@ Click Ok to start the auto-tuning process.
       <translation type="unfinished">Remove Link Configuration</translation>
     </message>
     <message>
-      <location filename="../src/ui/preferences/LinkSettings.qml" line="105"/>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="108"/>
       <source>Remove %1. Is this really what you want?</source>
-      <translation type="unfinished">Remove %1. Is this really what you want?</translation>
+      <translation type="unfinished">Удалить %1. Это действительно то, что вы хотите?</translation>
     </message>
     <message>
       <location filename="../src/ui/preferences/LinkSettings.qml" line="116"/>
       <source>Edit</source>
-      <translation type="unfinished">Edit</translation>
-    </message>
-    <message>
-      <location filename="../src/ui/preferences/LinkSettings.qml" line="121"/>
-      <source>Add</source>
-      <translation type="unfinished">Add</translation>
+      <translation type="unfinished">Редактировать</translation>
     </message>
     <message>
       <location filename="../src/ui/preferences/LinkSettings.qml" line="125"/>
+      <source>Add</source>
+      <translation type="unfinished">Добавить</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="129"/>
       <source>Connect</source>
-      <translation type="unfinished">Connect</translation>
+      <translation type="unfinished">Соединить</translation>
     </message>
     <message>
-      <location filename="../src/ui/preferences/LinkSettings.qml" line="130"/>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="134"/>
       <source>Disconnect</source>
-      <translation type="unfinished">Disconnect</translation>
+      <translation type="unfinished">Отключить</translation>
     </message>
     <message>
-      <location filename="../src/ui/preferences/LinkSettings.qml" line="135"/>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="139"/>
       <source>MockLink Options</source>
-      <translation type="unfinished">MockLink Options</translation>
+      <translation type="unfinished">Параметры MockLink</translation>
     </message>
     <message>
-      <location filename="../src/ui/preferences/LinkSettings.qml" line="173"/>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="182"/>
       <source>Edit Link Configuration Settings</source>
-      <translation type="unfinished">Edit Link Configuration Settings</translation>
+      <translation type="unfinished">Изменить настройки конфигурации соединения</translation>
     </message>
     <message>
-      <location filename="../src/ui/preferences/LinkSettings.qml" line="173"/>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="182"/>
       <source>Create New Link Configuration</source>
-      <translation type="unfinished">Create New Link Configuration</translation>
+      <translation type="unfinished">Создать новую конфигурацию соединения</translation>
     </message>
     <message>
-      <location filename="../src/ui/preferences/LinkSettings.qml" line="183"/>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="192"/>
       <source>Name</source>
-      <translation type="unfinished">Name</translation>
+      <translation type="unfinished">Название</translation>
     </message>
     <message>
-      <location filename="../src/ui/preferences/LinkSettings.qml" line="189"/>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="198"/>
       <source>Enter name</source>
-      <translation type="unfinished">Enter name</translation>
+      <translation type="unfinished">Введите имя</translation>
     </message>
     <message>
-      <location filename="../src/ui/preferences/LinkSettings.qml" line="194"/>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="203"/>
       <source>Automatically Connect on Start</source>
-      <translation type="unfinished">Automatically Connect on Start</translation>
+      <translation type="unfinished">Автоматически подключаться при запуске</translation>
     </message>
     <message>
-      <location filename="../src/ui/preferences/LinkSettings.qml" line="201"/>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="210"/>
       <source>High Latency</source>
-      <translation type="unfinished">High Latency</translation>
+      <translation type="unfinished">Большая задержка</translation>
     </message>
     <message>
-      <location filename="../src/ui/preferences/LinkSettings.qml" line="206"/>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="215"/>
       <source>Type</source>
-      <translation type="unfinished">Type</translation>
+      <translation type="unfinished">Тип</translation>
     </message>
     <message>
       <location filename="../src/ui/preferences/LinkSettings.qml" line="240"/>
@@ -8829,9 +8829,14 @@ Click Ok to start the auto-tuning process.
       <translation type="unfinished">OK</translation>
     </message>
     <message>
-      <location filename="../src/ui/preferences/LinkSettings.qml" line="260"/>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="269"/>
       <source>Cancel</source>
-      <translation type="unfinished">Cancel</translation>
+      <translation type="unfinished">Отменить</translation>
+    </message>
+    <message>
+      <location filename="../src/ui/preferences/LinkSettings.qml" line="139"/>
+      <source>Close</source>
+      <translation type="unfinished">Закрыть</translation>
     </message>
   </context>
   <context>
@@ -9456,14 +9461,14 @@ Click Ok to start the auto-tuning process.
       <translation type="unfinished">%1 close</translation>
     </message>
     <message>
-      <location filename="../src/ui/MainRootWindow.qml" line="307"/>
+      <location filename="../src/ui/MainRootWindow.qml" line="238"/>
       <source>There are still active connections to vehicles. Are you sure you want to exit?</source>
-      <translation type="unfinished">There are still active connections to vehicles. Are you sure you want to exit?</translation>
+      <translation type="unfinished">Есть еще активные подключения к летательным аппаратам. Ты уверен, что хочешь выйти?</translation>
     </message>
     <message>
-      <location filename="../src/ui/MainRootWindow.qml" line="271"/>
+      <location filename="../src/ui/MainRootWindow.qml" line="214"/>
       <source>You have a mission edit in progress which has not been saved/sent. If you close you will lose changes. Are you sure you want to close?</source>
-      <translation type="unfinished">You have a mission edit in progress which has not been saved/sent. If you close you will lose changes. Are you sure you want to close?</translation>
+      <translation type="unfinished">У вас есть работа по редактированию миссии, которая не была сохранена/отправлена. Если вы закроете, вы потеряете изменения. Вы уверены, что хотите закрыть?</translation>
     </message>
     <message>
       <location filename="../src/ui/MainRootWindow.qml" line="156"/>
@@ -9484,9 +9489,9 @@ Click Ok to start the auto-tuning process.
       <translation type="unfinished">Настройки приложения</translation>
     </message>
     <message>
-      <location filename="../src/ui/MainRootWindow.qml" line="288"/>
+      <location filename="../src/ui/MainRootWindow.qml" line="226"/>
       <source>You have pending parameter updates to a vehicle. If you close you will lose changes. Are you sure you want to close?</source>
-      <translation type="unfinished">You have pending parameter updates to a vehicle. If you close you will lose changes. Are you sure you want to close?</translation>
+      <translation type="unfinished">У вас есть незаконченные обновления параметров летательного аппарата. Если вы закроете, вы потеряете изменения. Вы уверены, что хотите закрыть?</translation>
     </message>
     <message>
       <location filename="../src/ui/MainRootWindow.qml" line="351"/>
@@ -9496,17 +9501,17 @@ Click Ok to start the auto-tuning process.
     <message>
       <location filename="../src/ui/MainRootWindow.qml" line="419"/>
       <source>%1 Version</source>
-      <translation type="unfinished">%1 Version</translation>
+      <translation type="unfinished">%1 версия</translation>
     </message>
     <message>
       <location filename="../src/ui/MainRootWindow.qml" line="452"/>
       <source>Advanced Mode</source>
-      <translation type="unfinished">Advanced Mode</translation>
+      <translation type="unfinished">Расширенный режим</translation>
     </message>
     <message>
       <location filename="../src/ui/MainRootWindow.qml" line="520"/>
       <source>Back</source>
-      <translation type="unfinished">Back</translation>
+      <translation type="unfinished">Назад</translation>
     </message>
   </context>
   <context>
@@ -9519,7 +9524,7 @@ Click Ok to start the auto-tuning process.
     <message>
       <location filename="../src/ui/toolbar/MainStatusIndicator.qml" line="36"/>
       <source>Ready To Fly</source>
-      <translation type="unfinished">Ready To Fly</translation>
+      <translation type="unfinished">Готов к полету</translation>
     </message>
     <message>
       <location filename="../src/ui/toolbar/MainStatusIndicator.qml" line="37"/>
@@ -9595,9 +9600,9 @@ Click Ok to start the auto-tuning process.
       <translation type="unfinished">Downloading</translation>
     </message>
     <message>
-      <location filename="../src/ui/toolbar/MainToolBar.qml" line="209"/>
+      <location filename="../src/ui/toolbar/MainToolBar.qml" line="223"/>
       <source>Click anywhere to hide</source>
-      <translation type="unfinished">Click anywhere to hide</translation>
+      <translation type="unfinished">Щелкните в любом месте, чтобы скрыть</translation>
     </message>
     <message>
       <location filename="../src/ui/toolbar/MainToolBar.qml" line="82"/>
@@ -10225,7 +10230,7 @@ Click Ok to start the auto-tuning process.
     <message>
       <location filename="../src/PlanView/MissionSettingsEditor.qml" line="157"/>
       <source>Vehicle Info</source>
-      <translation type="unfinished">Информация о&#10;&#13;летательном аппарате</translation>
+      <translation type="unfinished">Информация о&lt;br/&gt;летательном аппарате</translation>
     </message>
     <message>
       <location filename="../src/PlanView/MissionSettingsEditor.qml" line="68"/>
@@ -10375,7 +10380,7 @@ Click Ok to start the auto-tuning process.
     <message>
       <location filename="../src/ui/preferences/MockLinkSettings.qml" line="88"/>
       <source>ArduPilot</source>
-      <translation type="unfinished">ArduPilot</translation>
+      <translation type="unfinished">ArduPilot 10378</translation>
     </message>
     <message>
       <location filename="../src/ui/preferences/MockLinkSettings.qml" line="88"/>
@@ -10886,7 +10891,7 @@ Is this really what you want?</translation>
     <message>
       <location filename="../src/FirstRunPromptDialogs/OfflineVehicleFirstRunPrompt.qml" line="21"/>
       <source>Vehicle Information</source>
-      <translation type="unfinished">Информация о&#10;&#13;летательном аппарате</translation>
+      <translation type="unfinished">Информация о&lt;br/&gt;летательном аппарате</translation>
     </message>
     <message>
       <location filename="../src/FirstRunPromptDialogs/OfflineVehicleFirstRunPrompt.qml" line="36"/>
@@ -12813,7 +12818,7 @@ Note that this will also completely reset everything, including UAVCAN nodes, al
     <message>
       <location filename="../src/PlanView/PlanToolBarIndicators.qml" line="316"/>
       <source>Click anywhere to hide</source>
-      <translation type="unfinished">Click anywhere to hide</translation>
+      <translation type="unfinished">Щелкните в любом месте, чтобы скрыть</translation>
     </message>
   </context>
   <context>
@@ -12964,19 +12969,19 @@ Click &apos;Ok&apos; to upload the Plan anyway.</translation>
       <translation type="unfinished">Current mission must be paused prior to uploading a new Plan</translation>
     </message>
     <message>
-      <location filename="../src/PlanView/PlanView.qml" line="637"/>
+      <location filename="../src/PlanView/PlanView.qml" line="579"/>
       <source>Fly</source>
-      <translation type="unfinished">Fly</translation>
+      <translation type="unfinished">Полет</translation>
     </message>
     <message>
-      <location filename="../src/PlanView/PlanView.qml" line="651"/>
+      <location filename="../src/PlanView/PlanView.qml" line="593"/>
       <source>Takeoff</source>
       <translation type="unfinished">Взлет</translation>
     </message>
     <message>
-      <location filename="../src/PlanView/PlanView.qml" line="662"/>
+      <location filename="../src/PlanView/PlanView.qml" line="604"/>
       <source>Rally Point</source>
-      <translation type="unfinished">Rally Point</translation>
+      <translation type="unfinished">Пункт сбора</translation>
     </message>
     <message>
       <location filename="../src/PlanView/PlanView.qml" line="669"/>
@@ -17961,7 +17966,7 @@ Confirm change?</translation>
     <message>
       <location filename="../src/AnalyzeView/VibrationPage.qml" line="26"/>
       <source>Analyze vibration associated with your vehicle.</source>
-      <translation type="unfinished">Analyze vibration associated with your vehicle.</translation>
+      <translation type="unfinished">Проанализируйте вибрацию вашего летательного аппарата.</translation>
     </message>
     <message>
       <location filename="../src/AnalyzeView/VibrationPage.qml" line="74"/>

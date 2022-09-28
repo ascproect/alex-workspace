@@ -37,23 +37,28 @@ Item {
                 } else {
                     statusText = "Снаряжен"
                 }
+                _linkSettings.sourceComponent = undefined
                 return "/qmlimages/antenna-green.svg"
             } else {
                 if (_activeVehicle.readyToFlyAvailable) {
                     if (_activeVehicle.readyToFly) {
                         statusText = "Готов к полету"
+                        _linkSettings.sourceComponent = undefined
                         return "/qmlimages/antenna-green.svg"
                     } else {
                         statusText = "Не готов"
+                        _linkSettings.sourceComponent = undefined
                         return "/qmlimages/antenna-yellow.svg"
                     }
                 } else {
                     // Лучшее, что мы можем сделать, это определить готовность на основе настройки компонента AutoPilot и индикаторов работоспособности из SYS_STATUS.
                     if (_activeVehicle.allSensorsHealthy && _activeVehicle.autopilot.setupComplete) {
                         statusText = "Готов к полету"
+                        _linkSettings.sourceComponent = undefined
                         return "/qmlimages/antenna-green.svg"
                     } else {
                         statusText = "Не готов"
+                        _linkSettings.sourceComponent = undefined
                         return "/qmlimages/antenna-yellow.svg"
                     }
                 }
@@ -62,13 +67,6 @@ Item {
             statusText = "Связь потеряна"
             return "/qmlimages/antenna-red.svg"
         }
-    }
-
-    Loader {
-           id: container
-//////////           anchors.fill: parent
-           anchors.horizontalCenter: mainWindow.horizontalCenter
-//////////           anchors.verticalCenter: mainWindow.verticalCenter
     }
 
     Button {
@@ -99,7 +97,22 @@ Item {
             border.color: "#ffffff"
         }
         onClicked: {
-            container.source = "qrc:/qml/LinkSettings.qml"
+            if(_linkSettings.status == Loader.Ready) {
+                console.log("LinkSettings Ready")
+                _linkSettings.sourceComponent = undefined
+            }
+            else {
+                if(_linkSettings.status == Loader.Error) {
+                    console.log("LinkSettings.Error")
+                }
+                if(_linkSettings.status == Loader.Loading) {
+                    console.log("LinkSettings.Loading")
+                }
+                if(_linkSettings.status == Loader.Null) {
+                    console.log("LinkSettings.Null")
+                }
+                _linkSettings.source = "qrc:/qml/LinkSettings.qml"
+            }
         }
     }
 }

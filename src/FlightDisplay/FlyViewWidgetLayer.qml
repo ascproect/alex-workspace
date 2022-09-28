@@ -151,6 +151,14 @@ Item {
 
     }
 
+    Loader {
+        id: _linkSettings
+        width: 500
+        height: 375
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+    }
+
 /*/////////
     PhotoVideoControl { // это та маленькая красненькая кнопка что справа и посередине по высоте
         id:                     photoVideoControl
